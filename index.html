@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    <title>$bCASH LP Farm</title>
+</head>
+<body class="text-center">
+    <div class="container-fluid pb-5" id="container">
+        <div class="jumbotron mb-2 pb-3">
+            <h1 class="display-4 mb-5">Staking Dashboard</h1>
+            <img class="m-auto nftImage" src="images/pfp-sq.png" alt="bCASH logo"/>
+            <br/>
+            <button class="btn btn-primary btn-lg mt-2" role="button" id="connect">Connect Wallet</button>
+            <br/>
+            <p>This dashboard provides many options for staking and earning $bCASH.</p>
+            <div class="row">
+                <div class="col-md m-auto p-1 depositCounter">
+                    <a href="https://docs.butterflycash.lol" target="_blank" rel="noreferrer">$bCASH Gitbook</a>
+                    <br/>
+                </div>
+            </div>
+        </div>
+        <div class="jumbotron mb-2 pb-3">
+            <h1 class="display-4 mb-5">$bCASH Staking</h1>
+            <br/>
+            <div class="row">
+                <div class="col-md m-auto p-3 depositCounter">
+                    <h5>Total $bCASH in pool: <span id="totalBCash"></span></h5>
+                    <h5>Total Staked bCASH: <span id="totalStakedBCash"></span></h5><br/>
+                    <p>Stake a minimum of 10k $bCASH for 1 week and earn a share of the staking pool.</p>
+                    <p>You can add to your stake at any time and/or compound earnings after 1 week. Both of these actions reset your 1 week timer.</p>
+                    <p class="text-danger">There is a 10% tax on withdrawals. This will be reflected in your amount claimable.</p>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="mx-auto mt-4">
+                    <p>Your bCASH: <span id="mybCASH"></span></p>
+                    <p>Your Staked bCASH: <span id="bCASHStaked"></span></p>
+                    <p>Enter amount to stake</p>
+                    <input id="inputBCash" class="w-100" type="number" min="1" max="10000000" step="1" value="1"/>
+                    <p id="errorBCash" class="text-danger"></p>
+                    <button class="btn btn-primary btn-lg mb-2" role="button" id="approveBCashButton">Approve bCASH</button>
+                    <br/>
+                    <p>You must approve before staking!</p>
+                    <button class="btn btn-primary btn-lg mb-2" role="button" id="stakeBCashButton">Stake bCASH</button>
+                  </div>
+            </div>
+            <div class="row p-2">
+                <div class="mx-auto mt-4">
+                    <p>Time until Claimable: <span id="timeUntilClaimable"></span></p>
+                    <p>Est. bCASH Claimable: <span id="estimatedClaimable"></span></p>
+                    <p id="errorBCashclaim" class="text-danger"></p>
+                    <button class="btn btn-primary btn-lg mb-2" role="button" id="compoundBCashButton">Compound bCASH</button>
+                    <br/>
+                    <button class="btn btn-primary btn-lg mb-2" role="button" id="unStakeBCashButton">unStake bCASH</button>
+                    <br/>
+                </div>
+            </div>
+        </div>
+        <div class="jumbotron mb-2 pb-3">
+            <h1 class="display-4 mb-5">AutoLP Locker</h1>
+            <br/>
+            <div class="row">
+                <div class="col-md m-auto p-3 depositCounter">
+                    <h5>Total WAVAX in pool: <span id="totalAutoWavax"></span></h5>
+                    <h5>Total $bCASH in pool: <span id="totalAutoBCash"></span></h5>
+                    <h5>Total Staked PGL: <span id="totalAutoLP"></span></h5><br/>
+                    <p>
+                        This contract allows you to deposit 1-25 AVAX and receive an equivalent amount of $bCASH for free in exchange for 
+                        taking on the risk of providing liquidity for 4 weeks. After 4 weeks you will receive PGL liquidity tokens. You can only
+                        have one lock per wallet at a time.
+                    </p>
+                    <p class="text-danger">Providing liquidity comes with significant risks.</p>
+                    <a href="https://academy.binance.com/en/articles/what-are-liquidity-pools-in-defi" target="_blank" rel="noreferrer">Learn More Here</a>
+                    <br/>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="mx-auto mt-4">
+                    <p>Your Locked PGL: <span id="myLockedPGL"></span></p>
+                    <p>Your Est. AVAX: <span id="lockedAvax"></span></p>
+                    <p>Your Est. bCASH: <span id="lockedBcash"></span></p>
+                    <p>Time until unlocked: <span id="timeUntilUnlocked"></span></p>
+                    <p>Enter amount of AVAX to lock in LP</p>
+                    <input id="inputAVAX" class="w-100" type="number" min="1" max="25" step="1" value="1"/>
+                    <p id="errorLock" class="text-danger"></p>
+                    <button class="btn btn-primary btn-lg mb-2" role="button" id="lockAvaxButton">Lock AVAX</button>
+                    <br/>
+                    <button class="btn btn-primary btn-lg" role="button" id="claimPGLButton">Claim PGL</button>
+                  </div>
+            </div>
+        </div>
+        <div class="jumbotron mb-2 pb-3">
+            <h1 class="display-4 mb-5">Pangolin LP Farm</h1>
+            <br/>
+            <div class="row">
+                <div class="col-md m-auto p-3 depositCounter">
+                    <a href="https://legacy.pangolin.exchange/#/add/AVAX/0x4BA16DaF8ed418deD920C66e45cc3eaFFDE53Ac7" target="_blank" rel="noreferrer">Add Liquidity</a>
+                    <br/>
+                    <p>Current Rewards: <span id="pglRewards"></span> $bCASH per 1 AVAX in LP per day.</p>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="mx-auto mt-4">
+                    <p>Your PGL: <span id="myPGL"></span></p>
+                    <p>Your Staked PGL: <span id="pglStaked"></span></p>
+                    <p>Enter amount to stake/unstake</p>
+                    <input id="inputPGL" class="w-100" type="number" min="1" max="10000000" step="1" value="1"/>
+                    <p id="errorPGL" class="text-danger"></p>
+                    <button class="btn btn-primary btn-lg mb-2" role="button" id="approvePGLButton">Approve PGL</button>
+                    <br/>
+                    <p>You must approve before staking!</p>
+                    <button class="btn btn-primary btn-lg mb-2" role="button" id="stakePGLButton">Stake PGL</button>
+                    <br/>
+                    <button class="btn btn-primary btn-lg" role="button" id="unStakePGLButton">unStake PGL</button>
+                  </div>
+            </div>
+            <div class="row p-2">
+                <div class="mx-auto mt-4">
+                    <p>Est. Avax Staked: <span id="pglAvaxStaked"></span></p>
+                    <p>Est. bCASH Staked: <span id="pglBCashStaked"></span></p>
+                    <p>Est. bCASH Claimable: <span id="pglBCashClaimable"></span></p>
+                    <p id="errorPGLclaim" class="text-danger"></p>
+                    <button class="btn btn-primary btn-lg mb-2" role="button" id="claimPGLButton">Claim bCASH</button>
+                    <br/>
+                </div>
+            </div>
+        </div>
+        <div class="jumbotron mb-2 pb-3">
+            <h1 class="display-4 mb-5">Trader Joe LP Farm</h1>
+            <br/>
+            <div class="row">
+                <div class="col-md m-auto p-3 depositCounter">
+                    <a href="https://traderjoexyz.com/pool/AVAX/0x4BA16DaF8ed418deD920C66e45cc3eaFFDE53Ac7#/" target="_blank" rel="noreferrer">Add Liquidity</a>
+                    <br/>
+                    <p>Current Rewards: <span id="joeRewards"></span> $bCASH per 1 AVAX in LP per day.</p>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="mx-auto mt-4">
+                    <p>Your JLP: <span id="myJLP"></span></p>
+                    <p>Your Staked JLP: <span id="jlpStaked"></span></p>
+                    <p>Enter amount to stake/unstake</p>
+                    <input id="inputJLP" class="w-100" type="number" min="1" max="10000000" step="1" value="1"/>
+                    <p id="errorJLP" class="text-danger"></p>
+                    <button class="btn btn-primary btn-lg mb-2" role="button" id="approveJLPButton">Approve JLP</button>
+                    <br/>
+                    <p>You must approve before staking!</p>
+                    <button class="btn btn-primary btn-lg mb-2" role="button" id="stakeJLPButton">Stake JLP</button>
+                    <br/>
+                    <button class="btn btn-primary btn-lg" role="button" id="unStakeJLPButton">unStake JLP</button>
+                  </div>
+            </div>
+            <div class="row p-2">
+                <div class="mx-auto mt-4">
+                    <p>Est. Avax Staked: <span id="jlpAvaxStaked"></span></p>
+                    <p>Est. bCASH Staked: <span id="jlpBCashStaked"></span></p>
+                    <p>Est. bCASH Claimable: <span id="jlpBCashClaimable"></span></p>
+                    <p id="errorJLPclaim" class="text-danger"></p>
+                    <button class="btn btn-primary btn-lg mb-2" role="button" id="claimJLPButton">Claim bCASH</button>
+                    <br/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="./js/code.js"></script>
+</body>
+</html>

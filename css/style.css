@@ -1,0 +1,45 @@
+body {
+    background-color: #5087C6;
+}
+
+.counterImage {
+    width: 150px;
+    height: 150px;
+}
+
+.depositCounter p {
+    margin-bottom: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.depositCard {
+    border: black solid 2px;
+    border-radius: 10px;
+    background-color: #e9ecef;
+}
+
+.depositCard button {
+    width: 150px;
+}
+
+.nftImage {
+    width: 160px;
+    height: 160px;
+}
+
+#entryList {
+    width: 200px;
+}
+
+.jumbotron {
+    border:black solid 2px;
+}
+
+#notice {
+    border: black 2px solid;
+    border-radius: 15px;
+    padding: 5px;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    <title>$bCASH Stakoor Dash</title>
+</head>
+<body class="text-center">
+    <div class="container-fluid pb-5" id="container">
+        <div class="jumbotron mb-2 pb-3">
+            <h1 class="display-4 mb-5">bCASH Stakoor Contract Dashboard</h1>
+            <img class="m-auto nftImage" src="images/pfp-sq.png" alt="bCASH logo"/>
+            <br/>
+            <!-- <button class="btn btn-primary btn-lg mt-2" role="button" id="connect">Connect Wallet</button> -->
+            <br/>
+            <p>This dashboard real-time balances of the bCASH Stakoor Contracts.</p>
+            <a href="/index.html">View Staking Dashboard</a>
+            <div class="row">
+                <div class="col-md m-auto p-1 depositCounter">
+                    <a href="https://docs.butterflycash.lol" target="_blank" rel="noreferrer">$bCASH Gitbook</a>
+                    <br/>
+                </div>
+            </div>
+        </div>
+        <div class="jumbotron mb-2 pb-3 stakoorJumbo">
+            <h1 class="display-4 mb-5">$bCASH Stakoor Contracts</h1>
+            <br/>
+            <p>Currently index #0 is a holding contract for contributor incentives.</p>
+            <p>Indexes 1-13 flow into index #0.</p>
+            <p>Indexes 14-28 flow into the single-sided staking pool.</p>
+            <p>Time until next transfer:</p>
+            <p id="timeUntilTransfer"></p>
+            <div class="row">
+                <table id="balanceTable">  
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="./js/stakoor.js"></script>
+</body>
+</html>

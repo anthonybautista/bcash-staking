@@ -43,3 +43,29 @@ ul {
     border-radius: 15px;
     padding: 5px;
 }
+
+#balanceTable {
+    table-layout: fixed;
+    margin: auto;
+    width: 80%;
+    max-width: 400px;
+}
+
+#balanceTable td {
+    text-align: right;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+#tableHead {
+    text-align: center;
+    font-weight: bold;
+}
+
+#timeUntilTransfer {
+    font-size: large;
+    font-weight: bold;
+}

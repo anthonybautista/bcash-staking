@@ -723,7 +723,7 @@ $(function() {
         event.preventDefault();
         autoLP();
     });
-    $("button#claimPGLButton").off().on("click", function(event) {
+    $("button#claimAutoButton").off().on("click", function(event) {
         event.preventDefault();
         claimAutoLP();
     });

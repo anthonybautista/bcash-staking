@@ -18,7 +18,7 @@ let accounts;
 const defaultNetwork = '0xa86a';
 const { ethereum } = window;
 
-const RPC = 'https://nd-842-550-223.p2pify.com/a3568200146f750b02655bc82e14b97e/ext/bc/C/rpc';
+const RPC = 'https://api.avax.network/ext/bc/C/rpc';
 
 // Solution from https://labeebklatif.medium.com/js-number-tofixed-without-rounding-4da4207ba146
 Number.prototype.toFixedNoRound = function (precision = 1) {
